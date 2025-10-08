@@ -12,9 +12,9 @@ def main():
     image_dataset = ImageDataset('datasets')
 
     train_iter = DataLoader(image_dataset, batch_size=batch_size, shuffle=True, pin_memory=True,
-                        num_workers=8, prefetch_factor=2, persistent_workers=True)
+        num_workers=8, prefetch_factor=2, persistent_workers=True)
     test_iter = DataLoader(image_dataset, batch_size=batch_size, shuffle=False, pin_memory=True,
-                       num_workers=8, prefetch_factor=2, persistent_workers=True)
+        num_workers=8, prefetch_factor=2, persistent_workers=True)
 
     model = AlexNet().to(device)
     trained_model = train_model(model, train_iter, test_iter, num_epochs, learning_rate, device)
